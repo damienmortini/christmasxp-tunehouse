@@ -1,0 +1,77 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>tune house</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(.tmp) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+        <!-- build:js scripts/vendor/modernizr.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="bower_components/threejs/build/three.js"></script>
+        <script src="bower_components/threejs/examples/js/controls/TrackballControls.js"></script>
+        <script src="bower_components/threejs/examples/js/shaders/CopyShader.js"></script>
+        <script src="bower_components/threejs/examples/js/shaders/ConvolutionShader.js"></script>
+        <script src="bower_components/threejs/examples/js/shaders/BrightnessContrastShader.js"></script>
+        <script src="bower_components/threejs/examples/js/shaders/FXAAShader.js"></script>
+        <script src="bower_components/threejs/examples/js/postprocessing/BloomPass.js"></script>
+        <script src="bower_components/threejs/examples/js/postprocessing/EffectComposer.js"></script>
+        <script src="bower_components/threejs/examples/js/postprocessing/RenderPass.js"></script>
+        <script src="bower_components/threejs/examples/js/postprocessing/MaskPass.js"></script>
+        <script src="bower_components/threejs/examples/js/postprocessing/ShaderPass.js"></script>
+        <script src="scripts/shaders/AdditiveBlendShader.js"></script>
+        <script src="bower_components/js-signals/dist/signals.js"></script>
+        <script src="bower_components/greensock/src/uncompressed/TweenLite.js"></script>
+        <script src="bower_components/greensock/src/uncompressed/easing/EasePack.js"></script>
+        <script src="bower_components/sketch.js/js/sketch.js"></script>
+        <script src="scripts/vendor/howler.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/GlowObject.js"></script>
+        <script src="scripts/InteractiveObject.js"></script>
+        <script src="scripts/SwitchableObject.js"></script>
+        <script src="scripts/objects/Pad.js"></script>
+        <script src="scripts/objects/Chimney.js"></script>
+        <script src="scripts/objects/Ground.js"></script>
+        <script src="scripts/objects/Deer.js"></script>
+        <script src="scripts/objects/House.js"></script>
+        <script src="scripts/objects/Sky.js"></script>
+        <script src="scripts/objects/Corridor.js"></script>
+        <script src="scripts/objects/Tree.js"></script>
+        <script src="scripts/objects/BackgroundTrees.js"></script>
+        <script src="scripts/objects/Roof.js"></script>
+        <script src="scripts/Scene.js"></script>
+        <script src="scripts/Snowball.js"></script>
+        <script src="scripts/audio/SoundsMatrix.js"></script>
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
