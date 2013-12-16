@@ -3,7 +3,6 @@ class Pad extends SwitchableObject
 		mesh = new THREE.Mesh(new THREE.PlaneGeometry( 1, 1, 1, 1 ))
 		mesh.name = params.name
 		super(mesh)
-		console.log @name
 		@x = params.x
 		@y = params.y
 
@@ -28,7 +27,6 @@ class Pad extends SwitchableObject
 		@mesh.scale.x = @mesh.scale.y = .95
 
 		@collidableObjects = [@mesh]
-		# @collide()
 		null
 
 	update: =>

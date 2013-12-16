@@ -19,6 +19,14 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
+        <div class="loader">
+            <div class="house-part1"></div>
+            <div class="house-part2"></div>
+            <div class="house-part3"></div>
+            <div class="description">♪</div>
+            <div class="percentage"></div>
+        </div>
+
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/threejs/build/three.js"></script>
@@ -42,6 +50,7 @@
         <!-- endbuild -->
 
         <!-- build:js(.tmp) scripts/main.js -->
+        <script src="scripts/audio/SoundsMatrix.js"></script>
         <script src="scripts/GlowObject.js"></script>
         <script src="scripts/InteractiveObject.js"></script>
         <script src="scripts/SwitchableObject.js"></script>
@@ -57,7 +66,6 @@
         <script src="scripts/objects/Roof.js"></script>
         <script src="scripts/Scene.js"></script>
         <script src="scripts/Snowball.js"></script>
-        <script src="scripts/audio/SoundsMatrix.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>

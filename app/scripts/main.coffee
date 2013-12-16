@@ -7,27 +7,31 @@ window.SoundsMatrix = new SoundsMatrix()
 
 window.World = Sketch.create
 	type: Sketch.WEBGL
+	autostart: false
 
 World.onMouseDown = new Signal()
 
 World.setup = ->
 	@scene = new Scene(@canvas)
 
-	# SOUNDS
-	# for i in [0...4]
-	# 	SoundsMatrix.loadSound "drum#{i + 1}", 'wav'
-	# for i in [0...4]
-	# 	SoundsMatrix.loadSound "tone#{i + 1}", 'ogg'
-	# SoundsMatrix.loadSound 'voice-cannot-pass', 'mp3'
-	# for i in [0...9]
-	# 	SoundsMatrix.loadSound "chimney#{i + 1}", 'wav'
+	@scene.onLoad.add World.onSceneLoad.bind(@)
+	SoundsMatrix.onLoad.add World.onSoundsLoad.bind(@)
+	SoundsMatrix.onProgress.add World.onSoundsProgress.bind(@)
 
-	@stop()
-	
-	@scene.onLoad.add World.sceneLoaded.bind(@)
+World.onSceneLoad = ->
+	@sceneLoaded = true
+	if @soundsLoaded
+		@start()
 
-World.sceneLoaded = ->
-	@start()
+World.onSoundsLoad = ->
+	@soundsLoaded = true
+	if @sceneLoaded
+		document.getElementsByClassName('loader')[0].classList.add 'hide'
+		@canvas.classList.add 'show'
+		@start()
+
+World.onSoundsProgress = (progress) ->
+	document.getElementsByClassName('percentage')[0].style.width = Math.floor(progress * 100) + '%';
 
 World.update = ->
 	progress = (@millis % 15000) / 15000

@@ -2,8 +2,6 @@ class Deer extends InteractiveObject
 	constructor: (mesh) ->
 		super(mesh)
 
-		SoundsMatrix.loadSound @name
-
 		@isRunning = false
 		@speed = 0
 		@angleOffset = 0

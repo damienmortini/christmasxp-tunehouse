@@ -165,7 +165,9 @@ class Scene
 		# copyShaderPass.renderToScreen = true
 		@composer1.addPass copyShaderPass
 
-		@composer2 = new THREE.EffectComposer @renderer
+		devicePixelRatio = window.devicePixelRatio || 1
+
+		@composer2 = new THREE.EffectComposer @renderer, new THREE.WebGLRenderTarget(window.innerWidth * devicePixelRatio, window.innerHeight * devicePixelRatio, parameters) 
 
 		renderPass = new THREE.RenderPass @scene, @camera
 		@composer2.addPass renderPass
@@ -175,12 +177,9 @@ class Scene
 		@composer2.addPass additiveBlendShaderPass
 
 		fxaaShaderPass = new THREE.ShaderPass(THREE.FXAAShader)
-		fxaaShaderPass.uniforms['resolution'].value.set(1 / window.innerWidth, 1 / window.innerHeight)
+		fxaaShaderPass.uniforms['resolution'].value.set(1 / (window.innerWidth * devicePixelRatio), 1 / (window.innerHeight * devicePixelRatio))
+		fxaaShaderPass.renderToScreen = true
 		@composer2.addPass fxaaShaderPass
-
-		copyShaderPass = new THREE.ShaderPass THREE.CopyShader
-		copyShaderPass.renderToScreen = true
-		@composer2.addPass copyShaderPass
 		null
 
 	onClick: =>
@@ -229,5 +228,6 @@ class Scene
 		@camera.aspect = window.innerWidth / window.innerHeight
 		@camera.updateProjectionMatrix()
 		@renderer.setSize window.innerWidth, window.innerHeight 
+		@initComposers()
 		null
 

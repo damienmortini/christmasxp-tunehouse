@@ -11,6 +11,6 @@ class Sky extends InteractiveObject
 		mesh.material.specular.set 0x000000
 		@emissiveColor = 0xffffff
 		@glowEmissiveColor = 0xffffff
-		@color = 0xffffff
+		@color = 0xccccff
 
 		@collidableObjects = [@mesh]

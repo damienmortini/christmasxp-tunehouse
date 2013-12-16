@@ -9,8 +9,12 @@ class SoundsMatrix
 		for i in [0...@width]
 			@matrix[i] = []
 
+		@onLoad = new Signal()
+		@onProgress = new Signal()
+
 		@sounds = []
 		@soundIds = {}
+		@soundsLoaded = 0
 
 		if window.DEBUG
 			@CELL_SIZE = 10
@@ -33,6 +37,7 @@ class SoundsMatrix
 		@sounds.push new Howl
 			urls: ["sounds/#{name}.mp3", "sounds/#{name}.ogg"]
 			volume: volume
+			onload: @onSoundLoad
 		@soundIds[name] = @height
 
 		@height = @sounds.length
@@ -78,3 +83,10 @@ class SoundsMatrix
 
 		null
 
+	onSoundLoad: =>
+		@soundsLoaded++
+		percentageLoaded = @soundsLoaded / @sounds.length
+		@onProgress.dispatch(percentageLoaded)
+		if percentageLoaded is 1
+			@onLoad.dispatch()
+		null
